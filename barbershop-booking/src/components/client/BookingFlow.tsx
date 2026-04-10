@@ -42,6 +42,7 @@ export default function BookingFlow() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const nombre = formData.get('nombre') as string;
+    const descripcion = formData.get('descripcion_extra') as string;
     
     // Build the reservation date using selected time
     const baseDate = new Date();
@@ -53,6 +54,7 @@ export default function BookingFlow() {
         trabajador_id: selectedWorker.id,
         servicio_id: selectedService.id,
         nombre_cliente: nombre,
+        descripcion_extra: descripcion || null,
         fecha_hora: baseDate.toISOString()
       }
     ]);
@@ -159,7 +161,8 @@ export default function BookingFlow() {
               
               <input name="nombre" required placeholder="Tu Nombre Completo" className="w-full border-b-2 border-gray-200 p-4 mb-6 focus:border-[#D4AF37] bg-[#FAFAFA] focus:bg-white outline-none font-inter transition-colors" />
               <input name="telefono" required placeholder="Tu Número Móvil" className="w-full border-b-2 border-gray-200 p-4 mb-6 focus:border-[#D4AF37] bg-[#FAFAFA] focus:bg-white outline-none font-inter transition-colors" />
-              <input type="email" name="correo" required placeholder="Correo de confirmación" className="w-full border-b-2 border-gray-200 p-4 mb-10 focus:border-[#D4AF37] bg-[#FAFAFA] focus:bg-white outline-none font-inter transition-colors" />
+              <input type="email" name="correo" required placeholder="Correo de confirmación" className="w-full border-b-2 border-gray-200 p-4 mb-6 focus:border-[#D4AF37] bg-[#FAFAFA] focus:bg-white outline-none font-inter transition-colors" />
+              <textarea name="descripcion_extra" rows={3} placeholder="Información extra o peticiones especiales (opcional)" className="w-full border-2 border-gray-200 p-4 mb-10 focus:border-[#D4AF37] bg-[#FAFAFA] focus:bg-white outline-none font-inter transition-colors rounded resize-none text-sm" />
               
               <button type="submit" className="bg-[#D4AF37] text-white w-full py-5 font-oswald text-2xl uppercase tracking-widest hover:bg-[#b08d2b] transition-colors shadow-xl">
                 Confirmar Reserva
