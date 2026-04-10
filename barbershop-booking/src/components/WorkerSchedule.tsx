@@ -115,7 +115,7 @@ export default function WorkerSchedule() {
   });
 
   return (
-    <div className="min-h-screen bg-[#111111] text-white p-4 md:p-8 font-inter flex flex-col">
+    <div className="min-h-[100dvh] bg-[#111111] text-white p-4 md:p-8 font-inter flex flex-col overflow-hidden">
 
       <header className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 max-w-7xl mx-auto w-full border-b border-[#333] pb-6">
         <div className="flex items-center gap-6">
@@ -195,10 +195,10 @@ export default function WorkerSchedule() {
       )}
 
       {/* ============ CALENDAR GRID ============ */}
-      <div className="flex-1 w-full max-w-7xl mx-auto overflow-x-auto bg-[#1a1a1a] border border-[#333] rounded-lg shadow-2xl custom-scrollbar relative">
+      <div className="flex-1 w-full max-w-7xl mx-auto overflow-auto bg-[#1a1a1a] border border-[#333] rounded-lg shadow-2xl custom-scrollbar relative">
         <div className="min-w-[800px]">
           {/* Day headers */}
-          <div className="grid grid-cols-8 border-b border-[#333] sticky top-0 bg-[#1a1a1a] z-10 shadow-sm">
+          <div className="grid grid-cols-8 border-b border-[#333] sticky top-0 bg-[#1a1a1a] z-40 shadow-md shadow-black/30">
             <div className="p-4 bg-[#222] border-r border-[#333]"></div>
             {daysOfWeek.map((d, i) => (
               <div key={i} className={`p-4 text-center font-oswald border-r border-[#333] ${!diasActivos[i] ? 'opacity-30' : ''}`}>
@@ -213,7 +213,7 @@ export default function WorkerSchedule() {
           <div className="flex flex-col relative z-0">
             {hours.map(hour => (
               <div key={hour} className="grid grid-cols-8 border-b border-[#333]">
-                <div className="p-4 text-xs font-bold text-gray-500 bg-[#222] flex items-center justify-center border-r border-[#333] shrink-0 sticky left-0 z-10 w-full">
+                <div className="p-4 text-xs font-bold text-gray-500 bg-[#222] flex items-center justify-center border-r border-[#333] shrink-0 sticky left-0 z-30 w-full shadow-sm shadow-black/20">
                   {hour}
                 </div>
                 {daysOfWeek.map((day, i) => {
