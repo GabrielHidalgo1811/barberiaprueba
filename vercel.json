@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd barbershop-booking && npm install && npm run build",
+  "outputDirectory": "barbershop-booking/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
